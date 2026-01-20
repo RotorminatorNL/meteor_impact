@@ -23,8 +23,8 @@ public class MeteorHandler : MonoBehaviour
 
     private void Update()
     {
-        if (!useSound) meteorAudio.spatialBlend = spatialBlend;
-        if (!useTactile)
+        if (useSound) meteorAudio.spatialBlend = spatialBlend;
+        if (useTactile)
         {
             float minRndRange = hapticAmplitude - hapticRndRange;
             float maxRndRange = hapticAmplitude + hapticRndRange;

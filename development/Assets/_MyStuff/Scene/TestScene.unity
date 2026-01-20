@@ -474,6 +474,10 @@ MonoBehaviour:
   meteorIncoming: {fileID: 8300000, guid: b12abbda2049c164b8153b105051dd0e, type: 3}
   meteorHit: {fileID: 8300000, guid: ebfcf7cbfcd7e8b4a9bb6a29eece0167, type: 3}
   spatialBlend: 1
+  leftController: {fileID: 803670263}
+  rightController: {fileID: 1082176617}
+  hapticAmplitude: 0
+  hapticRndRange: 0
 --- !u!1 &299639867
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +704,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &803670263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3904215599808047960, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 910752757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b734f2bd29eeddd4d85afb0c266228c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &910752757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1097,6 +1112,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056031387}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1082176617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6785824473521764740, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 910752757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b734f2bd29eeddd4d85afb0c266228c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1098999601
 GameObject:
   m_ObjectHideFlags: 0

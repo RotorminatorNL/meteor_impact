@@ -31,6 +31,16 @@ public class ExperienceHandler : MonoBehaviour
             Debug.Log("Tactile");
             chosenExperience = 4;
         }
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            Debug.Log("Experience 1: Visual + Auditory");
+            chosenExperience = 5;
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            Debug.Log("Experience 2: Visual + Tactile");
+            chosenExperience = 6;
+        }
 
         if (chosenExperience != 0) StartExperience(chosenExperience);
     }
@@ -38,7 +48,13 @@ public class ExperienceHandler : MonoBehaviour
     private void StartExperience(int chosenExperience)
     {
         StartCoroutine(meteorHandler.StartMeteor(chosenExperience));
-        if (chosenExperience == 1 || chosenExperience == 2) blockView.SetActive(false);
-        else if (chosenExperience == 3 || chosenExperience == 4) blockView.SetActive(true);
+        if (chosenExperience == 3 || chosenExperience == 4) blockView.SetActive(true);
+        else StartCoroutine(DelayDisableBlockView());
+    }
+
+    private IEnumerator DelayDisableBlockView()
+    {
+        yield return new WaitForSeconds(0.1f);
+        blockView.SetActive(false);
     }
 }

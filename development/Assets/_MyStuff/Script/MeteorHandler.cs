@@ -7,6 +7,9 @@ public class MeteorHandler : MonoBehaviour
     [Header("Visual")]
     [SerializeField] private Animator meteorImpactController;
     [SerializeField] private Animator meteorSpinningController;
+    [SerializeField] private GameObject deathSpotLight;
+    [SerializeField] private GameObject deathScreen;
+    [SerializeField] private bool deathActive = false;
     [Header("Sound")]
     [SerializeField] private AudioSource meteorAudio;
     [SerializeField] private AudioClip meteorIncoming;
@@ -18,6 +21,7 @@ public class MeteorHandler : MonoBehaviour
     [SerializeField, Range(0, 1)] private float hapticAmplitude;
     [SerializeField, Range(0, 1)] private float hapticRndRange;
 
+    private int currentExperience = 0;
     private bool useSound = false;
     private bool useTactile = false;
 
@@ -38,10 +42,21 @@ public class MeteorHandler : MonoBehaviour
             leftController.SendHapticImpulse(rndImpulseLeft, 0);
             rightController.SendHapticImpulse(rndImpulseRight, 0);
         }
-    }
 
+        if (deathActive && currentExperience != 3 && currentExperience != 4)
+        {
+            deathSpotLight.SetActive(true);
+            deathScreen.SetActive(true);
+        }
+        else
+        {
+            deathSpotLight.SetActive(false);
+            deathScreen.SetActive(false);
+        }
+    }
     public IEnumerator StartMeteor(int chosenExperience)
     {
+        currentExperience = chosenExperience;
         useSound = false;
         useTactile = false;
         meteorImpactController.SetBool("Active", false);
@@ -50,8 +65,8 @@ public class MeteorHandler : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         meteorImpactController.SetBool("Active", true);
         meteorSpinningController.SetBool("Active", true);
-        if (chosenExperience == 1 || chosenExperience == 3) UseMeteorSound();
-        if (chosenExperience == 1 || chosenExperience == 4) useTactile = true;
+        if (chosenExperience == 1 || chosenExperience == 3 || chosenExperience == 5) UseMeteorSound();
+        if (chosenExperience == 1 || chosenExperience == 4 || chosenExperience == 6) useTactile = true;
     }
 
     public void MeteorHit()
